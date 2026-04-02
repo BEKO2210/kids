@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Meisterkurs für junge Entdecker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <header class="hero">
+        <div class="hero-content">
+            <div class="mascot">🤖</div>
+            <h1>KI-Meisterkurs</h1>
+            <p class="subtitle">für junge Entdecker</p>
+            <p class="kids-names">Maxim • Alia • Amir</p>
+            <div class="hero-badges">
+                <span class="badge-mini">🥉</span>
+                <span class="badge-mini">🥈</span>
+                <span class="badge-mini">🎨</span>
+                <span class="badge-mini">⚙️</span>
+                <span class="badge-mini">🥇</span>
+            </div>
+            <button class="cta-button" onclick="scrollToCourse()">Starte dein Abenteuer 🚀</button>
+        </div>
+        <div class="floating-blocks">
+            <div class="block">🧱</div>
+            <div class="block">🎮</div>
+            <div class="block">💎</div>
+            <div class="block">⚔️</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="progress-section">
+            <h2>🏆 Dein Fortschritt</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <span class="progress-text" id="progressText">0 / 5 Badges</span>
+            </div>
+            <div class="theme-toggle">
+                <button onclick="setTheme('minecraft')" class="theme-btn minecraft" title="Minecraft-Style">🧱</button>
+                <button onclick="setTheme('roblox')" class="theme-btn roblox" title="Roblox-Style">🎮</button>
+                <button onclick="setTheme('space')" class="theme-btn space" title="Space-Style">🚀</button>
+            </div>
+        </section>
+
+        <section class="course-days" id="course">
+            <h2>📚 Die 5 Tage im Überblick</h2>
+            <div class="days-grid">
+                <article class="day-card" data-day="1" onclick="toggleDay(1)">
+                    <div class="day-header">
+                        <span class="day-number">Tag 1</span>
+                        <span class="day-badge" id="badge-1">🔒</span>
+                    </div>
+                    <h3>Was ist KI?</h3>
+                    <p class="day-theme">Minecraft-Mobs als "einfache KI"</p>
+                    <div class="day-details" id="details-1">
+                        <ul>
+                            <li>🧟 Lernen, wie Zombies und Creepers "denken"</li>
+                            <li>🤖 Bau deinen eigenen Chatbot</li>
+                            <li>🧠 Verstehe den Unterschied: Mensch vs. Maschine</li>
+                        </ul>
+                        <button class="collect-btn" onclick="event.stopPropagation(); collectBadge(1)">Badge sammeln 🥉</button>
+                    </div>
+                </article>
+
+                <article class="day-card" data-day="2" onclick="toggleDay(2)">
+                    <div class="day-header">
+                        <span class="day-number">Tag 2</span>
+                        <span class="day-badge" id="badge-2">🔒</span>
+                    </div>
+                    <h3>Prompt Engineering</h3>
+                    <p class="day-theme">Roblox-Befehle & Chat</p>
+                    <div class="day-details" id="details-2">
+                        <ul>
+                            <li>💬 Warum "mach was!" nicht genug ist</li>
+                            <li>✨ Die Magie präziser Fragen</li>
+                            <li>🏗️ Prompts wie Roblox-Befehle nutzen</li>
+                        </ul>
+                        <button class="collect-btn" onclick="event.stopPropagation(); collectBadge(2)">Badge sammeln 🥈</button>
+                    </div>
+                </article>
+
+                <article class="day-card" data-day="3" onclick="toggleDay(3)">
+                    <div class="day-header">
+                        <span class="day-number">Tag 3</span>
+                        <span class="day-badge" id="badge-3">🔒</span>
+                    </div>
+                    <h3>Kreativ mit KI</h3>
+                    <p class="day-theme">Minecraft-Skin-Designer</p>
+                    <div class="day-details" id="details-3">
+                        <ul>
+                            <li>🎨 Erstelle eigene Skins mit KI</li>
+                            <li>📖 Schreibe spannende Geschichten</li>
+                            <li>🦸 Designe deinen Superhelden</li>
+                        </ul>
+                        <button class="collect-btn" onclick="event.stopPropagation(); collectBadge(3)">Badge sammeln 🎨</button>
+                    </div>
+                </article>
+
+                <article class="day-card" data-day="4" onclick="toggleDay(4)">
+                    <div class="day-header">
+                        <span class="day-number">Tag 4</span>
+                        <span class="day-badge" id="badge-4">🔒</span>
+                    </div>
+                    <h3>Problemlösen mit KI</h3>
+                    <p class="day-theme">Redstone-Logik</p>
+                    <div class="day-details" id="details-4">
+                        <ul>
+                            <li>⚡ Redstone = KI-Logik verstehen</li>
+                            <li>🐛 Werde Bug-Jäger wie ein Pro</li>
+                            <li>🔧 KI als dein Lernhelfer nutzen</li>
+                        </ul>
+                        <button class="collect-btn" onclick="event.stopPropagation(); collectBadge(4)">Badge sammeln ⚙️</button>
+                    </div>
+                </article>
+
+                <article class="day-card final-card" data-day="5" onclick="toggleDay(5)">
+                    <div class="day-header">
+                        <span class="day-number">Tag 5</span>
+                        <span class="day-badge" id="badge-5">🔒</span>
+                    </div>
+                    <h3>Das große Abschlussprojekt</h3>
+                    <p class="day-theme">Eigenes Spiel-Konzept</p>
+                    <div class="day-details" id="details-5">
+                        <ul>
+                            <li>🎮 Entwickle dein eigenes Game</li>
+                            <li>📝 Präsentiere deine Idee</li>
+                            <li>🏆 Werde offizieller KI-Experte</li>
+                        </ul>
+                        <button class="collect-btn" onclick="event.stopPropagation(); collectBadge(5)">Badge sammeln 🥇</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <h2>💡 Tipps für kleine KI-Profis</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <span class="tip-icon">❓</span>
+                    <p>Stellt viele Fragen!</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">🔬</span>
+                    <p>Experimentiert frei!</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">🤝</span>
+                    <p>Helft euch gegenseitig!</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">😄</span>
+                    <p>Habt Spaß!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="safety-section">
+            <h2>🔒 Sicherheitshinweise</h2>
+            <div class="safety-box">
+                <ul>
+                    <li>🚫 Keine persönlichen Daten in KI-Tools eingeben</li>
+                    <li>👨‍👩‍👧 Elterliche Aufsicht bei allen Online-Aktivitäten</li>
+                    <li>🧐 KI-Ausgaben kritisch hinterfragen</li>
+                    <li>⚖️ Urheberrechte beachten (keine kommerzielle Nutzung)</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>🚀 KI-Meisterkurs für Maxim, Alia & Amir</p>
+        <p class="footer-sub">Gemacht mit ❤️ und etwas KI-Magie</p>
+    </footer>
+
+    <div class="confetti" id="confetti"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
