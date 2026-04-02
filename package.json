@@ -1,26 +1,42 @@
 {
-  "name": "kids-ki-meisterkurs-tests",
+  "name": "kids-ki-meisterkurs",
   "version": "1.0.0",
-  "description": "Tests für den KI-Meisterkurs",
+  "description": "KI-Meisterkurs für Kinder - Interaktiver Kurs über Künstliche Intelligenz",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "lint:html": "html-validate *.html",
-    "lint:css": "stylelint styles.css",
-    "validate": "npm run lint:html && npm run lint:css && npm test"
+    "lint:html": "html-validate *.html --config .htmlvalidate.json",
+    "lint:css": "stylelint styles.css --config .stylelintrc.json",
+    "validate": "npm run lint:html && npm run lint:css && npm test",
+    "ci": "npm run validate"
   },
   "devDependencies": {
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "html-validate": "^8.7.4",
     "stylelint": "^16.2.1",
-    "stylelint-config-standard": "^36.0.0",
-    "jsdom": "^24.0.0"
+    "stylelint-config-standard": "^36.0.0"
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "testMatch": ["**/tests/**/*.test.js"],
-    "collectCoverageFrom": ["*.html", "*.css"]
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "*.html",
+      "*.css"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

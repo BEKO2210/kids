@@ -1,0 +1,110 @@
+name: Test & Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # ============================================
+  # TEST JOB
+  # ============================================
+  test:
+    runs-on: ubuntu-latest
+    name: Run All Tests
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run Jest tests
+        run: npm test -- --coverage --coverageReporters=text-summary
+        
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage/
+          
+      - name: Validate HTML
+        run: npm run lint:html || true
+        
+      - name: Validate CSS
+        run: npm run lint:css || true
+
+  # ============================================
+  # BUILD JOB
+  # ============================================
+  build:
+    runs-on: ubuntu-latest
+    name: Build Website
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Verify build artifacts
+        run: |
+          echo "Checking required files..."
+          test -f index.html || exit 1
+          test -f styles.css || exit 1
+          test -f tag-1.html || exit 1
+          test -f tag-2.html || exit 1
+          test -f tag-3.html || exit 1
+          test -f tag-4.html || exit 1
+          test -f tag-5.html || exit 1
+          test -f eltern.html || exit 1
+          test -f wochenplan.html || exit 1
+          test -f arbeitsblaetter.html || exit 1
+          echo "All required files present!"
+          
+      - name: Create .nojekyll
+        run: touch .nojekyll
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  # ============================================
+  # DEPLOY JOB
+  # ============================================
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    name: Deploy to GitHub Pages
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
