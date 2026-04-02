@@ -896,9 +896,10 @@ a:hover {
     display: flex;
   }
   
-  .navbar-menu-btn {
+  /* Hamburger immer sichtbar für Test */
+  /* .navbar-menu-btn {
     display: none;
-  }
+  } */
   
   .navbar-logo {
     font-size: 1.25rem;
