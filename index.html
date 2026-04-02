@@ -296,13 +296,28 @@
 
         let unlockedBadges = new Set();
 
+        // Prüft ob Tag besucht UND gescrollt wurde
+        function getTagProgress(day) {
+            try {
+                const saved = localStorage.getItem(`tag${day}_progress`);
+                if (saved) {
+                    const progress = JSON.parse(saved);
+                    return progress.visited === true && progress.scrolled === true;
+                }
+            } catch (e) {
+                console.warn('Konnte Fortschritt nicht lesen:', e);
+            }
+            return false;
+        }
+
         function loadProgress() {
             const saved = localStorage.getItem('ki-meisterkurs-badges');
             if (saved) {
                 unlockedBadges = new Set(JSON.parse(saved));
                 unlockedBadges.forEach(day => updateBadgeVisuals(day));
-                updateProgressBar();
             }
+            updateProgressBar();
+            updateButtonStates();
         }
 
         function saveProgress() {
@@ -311,6 +326,12 @@
 
         function collectBadge(day) {
             if (unlockedBadges.has(day)) return;
+            
+            // Prüfen ob Tag besucht und gescrollt wurde
+            if (!getTagProgress(day)) {
+                alert(`Besuche erst Tag ${day} und lies alles bis zum Ende durch, bevor du den Badge sammeln kannst!`);
+                return;
+            }
 
             unlockedBadges.add(day);
             saveProgress();
@@ -347,6 +368,26 @@
             }
         }
 
+        function updateButtonStates() {
+            // Alle Badge-Buttons prüfen und entsprechend kennzeichnen
+            for (let day = 1; day <= 5; day++) {
+                const card = document.querySelector(`.card[data-day="${day}"]`);
+                const btn = card?.querySelector('.collect-badge-btn');
+                if (!btn || unlockedBadges.has(day)) continue;
+                
+                const canCollect = getTagProgress(day);
+                if (canCollect) {
+                    btn.textContent = 'Badge sammeln';
+                    btn.style.background = 'var(--success)');
+                    btn.style.color = 'white';
+                } else {
+                    btn.textContent = `Tag ${day} lesen`;
+                    btn.style.background = 'var(--surface)';
+                    btn.style.color = 'var(--text-muted)';
+                }
+            }
+        }
+
         function updateProgressBar() {
             const progress = (unlockedBadges.size / 5) * 100;
             const fill = document.getElementById('progress-fill');
@@ -375,6 +416,13 @@
             if (e.target.classList.contains('collect-badge-btn')) {
                 const day = parseInt(e.target.getAttribute('data-day'));
                 collectBadge(day);
+            }
+        });
+
+        // Button-States aktualisieren wenn Seite sichtbar wird (z.B. zurück von Tag-Seite)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                updateButtonStates();
             }
         });
     </script>
