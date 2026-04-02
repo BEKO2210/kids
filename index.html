@@ -18,13 +18,16 @@
             <p class="subtitle">für junge Entdecker</p>
             <p class="kids-names">Maxim • Alia • Amir</p>
             <div class="hero-badges">
-                <span class="badge-mini">🥉</span>
-                <span class="badge-mini">🥈</span>
-                <span class="badge-mini">🎨</span>
-                <span class="badge-mini">⚙️</span>
-                <span class="badge-mini">🥇</span>
+                <span class="badge-mini" id="hero-badge-1">🥉</span>
+                <span class="badge-mini" id="hero-badge-2">🥈</span>
+                <span class="badge-mini" id="hero-badge-3">🎨</span>
+                <span class="badge-mini" id="hero-badge-4">⚙️</span>
+                <span class="badge-mini" id="hero-badge-5">🥇</span>
             </div>
-            <button class="cta-button" onclick="scrollToCourse()">Starte dein Abenteuer 🚀</button>
+            <div class="hero-buttons">
+                <button class="cta-button" onclick="scrollToCourse()">Starte dein Abenteuer 🚀</button>
+                <a href="viewer.html?file=eltern-guide.md" class="cta-button secondary">👨‍👩‍👧‍👦 Für Eltern</a>
+            </div>
         </div>
         <div class="floating-blocks">
             <div class="block">🧱</div>
@@ -48,93 +51,156 @@
             </div>
         </section>
 
+        <section class="quick-nav">
+            <h2>📁 Alle Materialien</h2>
+            <div class="nav-grid">
+                <a href="viewer.html?file=Wochenplan.md" class="nav-card">
+                    <span class="nav-icon">📅</span>
+                    <span class="nav-label">Wochenplan</span>
+                </a>
+                <a href="viewer.html?file=bonus-ideen.md" class="nav-card">
+                    <span class="nav-icon">💡</span>
+                    <span class="nav-label">Bonus-Ideen</span>
+                </a>
+                <a href="viewer.html?file=eltern-guide.md" class="nav-card">
+                    <span class="nav-icon">👨‍👩‍👧‍👦</span>
+                    <span class="nav-label">Eltern-Guide</span>
+                </a>
+                <a href="#arbeitsblaetter" class="nav-card" onclick="scrollToSheets(); return false;">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-label">Arbeitsblätter</span>
+                </a>
+            </div>
+        </section>
+
         <section class="course-days" id="course">
             <h2>📚 Die 5 Tage im Überblick</h2>
             <div class="days-grid">
-                <article class="day-card" data-day="1" onclick="toggleDay(1)">
+                <article class="day-card" data-day="1">
                     <div class="day-header">
                         <span class="day-number">Tag 1</span>
                         <span class="day-badge" id="badge-1">🔒</span>
                     </div>
                     <h3>Was ist KI?</h3>
                     <p class="day-theme">Minecraft-Mobs als "einfache KI"</p>
-                    <div class="day-details" id="details-1">
+                    <div class="day-preview">
                         <ul>
                             <li>🧟 Lernen, wie Zombies und Creepers "denken"</li>
                             <li>🤖 Bau deinen eigenen Chatbot</li>
                             <li>🧠 Verstehe den Unterschied: Mensch vs. Maschine</li>
                         </ul>
-                        <button class="collect-btn" onclick="event.stopPropagation(); collectBadge(1)">Badge sammeln 🥉</button>
+                    </div>
+                    <div class="day-actions">
+                        <a href="viewer.html?file=tag-1-was-ist-ki.md" class="action-btn read-btn">📖 Zur Lektion</a>
+                        <button class="collect-btn" onclick="collectBadge(1)">Badge sammeln 🥉</button>
                     </div>
                 </article>
 
-                <article class="day-card" data-day="2" onclick="toggleDay(2)">
+                <article class="day-card" data-day="2">
                     <div class="day-header">
                         <span class="day-number">Tag 2</span>
                         <span class="day-badge" id="badge-2">🔒</span>
                     </div>
                     <h3>Prompt Engineering</h3>
                     <p class="day-theme">Roblox-Befehle & Chat</p>
-                    <div class="day-details" id="details-2">
+                    <div class="day-preview">
                         <ul>
                             <li>💬 Warum "mach was!" nicht genug ist</li>
                             <li>✨ Die Magie präziser Fragen</li>
-                            <li>🏗️ Prompts wie Roblox-Befehle nutzen</li>
+                            <li>🏗️ Das 5-Sterne-Prompt-Rezept</li>
                         </ul>
-                        <button class="collect-btn" onclick="event.stopPropagation(); collectBadge(2)">Badge sammeln 🥈</button>
+                    </div>
+                    <div class="day-actions">
+                        <a href="viewer.html?file=tag-2-prompt-engineering.md" class="action-btn read-btn">📖 Zur Lektion</a>
+                        <button class="collect-btn" onclick="collectBadge(2)">Badge sammeln 🥈</button>
                     </div>
                 </article>
 
-                <article class="day-card" data-day="3" onclick="toggleDay(3)">
+                <article class="day-card" data-day="3">
                     <div class="day-header">
                         <span class="day-number">Tag 3</span>
                         <span class="day-badge" id="badge-3">🔒</span>
                     </div>
                     <h3>Kreativ mit KI</h3>
                     <p class="day-theme">Minecraft-Skin-Designer</p>
-                    <div class="day-details" id="details-3">
+                    <div class="day-preview">
                         <ul>
                             <li>🎨 Erstelle eigene Skins mit KI</li>
                             <li>📖 Schreibe spannende Geschichten</li>
                             <li>🦸 Designe deinen Superhelden</li>
                         </ul>
-                        <button class="collect-btn" onclick="event.stopPropagation(); collectBadge(3)">Badge sammeln 🎨</button>
+                    </div>
+                    <div class="day-actions">
+                        <a href="viewer.html?file=tag-3-kreativ-ki.md" class="action-btn read-btn">📖 Zur Lektion</a>
+                        <button class="collect-btn" onclick="collectBadge(3)">Badge sammeln 🎨</button>
                     </div>
                 </article>
 
-                <article class="day-card" data-day="4" onclick="toggleDay(4)">
+                <article class="day-card" data-day="4">
                     <div class="day-header">
                         <span class="day-number">Tag 4</span>
                         <span class="day-badge" id="badge-4">🔒</span>
                     </div>
                     <h3>Problemlösen mit KI</h3>
                     <p class="day-theme">Redstone-Logik</p>
-                    <div class="day-details" id="details-4">
+                    <div class="day-preview">
                         <ul>
                             <li>⚡ Redstone = KI-Logik verstehen</li>
                             <li>🐛 Werde Bug-Jäger wie ein Pro</li>
                             <li>🔧 KI als dein Lernhelfer nutzen</li>
                         </ul>
-                        <button class="collect-btn" onclick="event.stopPropagation(); collectBadge(4)">Badge sammeln ⚙️</button>
+                    </div>
+                    <div class="day-actions">
+                        <a href="viewer.html?file=tag-4-problemloesen.md" class="action-btn read-btn">📖 Zur Lektion</a>
+                        <button class="collect-btn" onclick="collectBadge(4)">Badge sammeln ⚙️</button>
                     </div>
                 </article>
 
-                <article class="day-card final-card" data-day="5" onclick="toggleDay(5)">
+                <article class="day-card final-card" data-day="5">
                     <div class="day-header">
                         <span class="day-number">Tag 5</span>
                         <span class="day-badge" id="badge-5">🔒</span>
                     </div>
                     <h3>Das große Abschlussprojekt</h3>
                     <p class="day-theme">Eigenes Spiel-Konzept</p>
-                    <div class="day-details" id="details-5">
+                    <div class="day-preview">
                         <ul>
                             <li>🎮 Entwickle dein eigenes Game</li>
                             <li>📝 Präsentiere deine Idee</li>
                             <li>🏆 Werde offizieller KI-Experte</li>
                         </ul>
-                        <button class="collect-btn" onclick="event.stopPropagation(); collectBadge(5)">Badge sammeln 🥇</button>
+                    </div>
+                    <div class="day-actions">
+                        <a href="viewer.html?file=tag-5-abschlussprojekt.md" class="action-btn read-btn">📖 Zur Lektion</a>
+                        <button class="collect-btn" onclick="collectBadge(5)">Badge sammeln 🥇</button>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <section class="sheets-section" id="arbeitsblaetter">
+            <h2>📝 Arbeitsblätter</h2>
+            <div class="sheets-grid">
+                <a href="arbeitsblaetter/tag1_ki_oder_nicht.md" class="sheet-card" target="_blank">
+                    <span class="sheet-icon">🧩</span>
+                    <h4>KI oder Nicht-KI?</h4>
+                    <p>Tag 1</p>
+                </a>
+                <a href="arbeitsblaetter/tag2_prompt_upgrade.md" class="sheet-card" target="_blank">
+                    <span class="sheet-icon">⭐</span>
+                    <h4>Prompt-Upgrade</h4>
+                    <p>Tag 2</p>
+                </a>
+                <a href="arbeitsblaetter/tag3_charakter_designer.md" class="sheet-card" target="_blank">
+                    <span class="sheet-icon">🦸</span>
+                    <h4>Charakter-Designer</h4>
+                    <p>Tag 3</p>
+                </a>
+                <a href="arbeitsblaetter/tag4_debug_detektiv.md" class="sheet-card" target="_blank">
+                    <span class="sheet-icon">🔍</span>
+                    <h4>Debug-Detektiv</h4>
+                    <p>Tag 4</p>
+                </a>
             </div>
         </section>
 

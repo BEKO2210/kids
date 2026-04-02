@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Meisterkurs - Lektion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .viewer-header {
+            background: var(--surface);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .viewer-header h1 {
+            font-size: 1.3rem;
+            margin: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .back-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 50px;
+            background: var(--primary);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+        
+        .viewer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .viewer-content h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+        
+        .viewer-content h2 {
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            text-align: left;
+        }
+        
+        .viewer-content h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary);
+        }
+        
+        .viewer-content p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        .viewer-content ul, .viewer-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .viewer-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .viewer-content code {
+            background: rgba(99, 102, 241, 0.15);
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9em;
+            color: var(--accent);
+        }
+        
+        .viewer-content pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.2rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        
+        .viewer-content pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text);
+            display: block;
+            line-height: 1.5;
+        }
+        
+        .viewer-content blockquote {
+            border-left: 4px solid var(--primary);
+            margin: 1.5rem 0;
+            padding: 1rem 1.5rem;
+            background: var(--surface);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+        }
+        
+        .viewer-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            background: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .viewer-content th, .viewer-content td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .viewer-content th {
+            background: rgba(99, 102, 241, 0.2);
+            font-weight: 700;
+        }
+        
+        .viewer-content tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .viewer-content hr {
+            border: none;
+            height: 1px;
+            background: var(--border);
+            margin: 2.5rem 0;
+        }
+        
+        .viewer-content input[type="checkbox"] {
+            margin-right: 0.5rem;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+        
+        .loading, .error {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-size: 1.2rem;
+        }
+        
+        .error {
+            color: #ef4444;
+        }
+        
+        .error-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .viewer-content {
+                padding: 1.5rem 1rem;
+            }
+            .viewer-content h1 {
+                font-size: 1.6rem;
+            }
+            .viewer-header {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="viewer-header">
+        <h1>🚀 KI-Meisterkurs</h1>
+        <a href="index.html" class="back-btn">← Zurück zur Übersicht</a>
+    </div>
+    
+    <main class="viewer-content" id="content">
+        <div class="loading">📖 Lade Inhalt...</div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const file = urlParams.get('file');
+        
+        const fileTitles = {
+            'tag-1-was-ist-ki.md': '🎓 TAG 1: Was ist KI wirklich?',
+            'tag-2-prompt-engineering.md': '🎯 TAG 2: Prompt Engineering',
+            'tag-3-kreativ-ki.md': '🎨 TAG 3: Kreativ mit KI',
+            'tag-4-problemloesen.md': '⚙️ TAG 4: KI als Lernhelfer',
+            'tag-5-abschlussprojekt.md': '🏆 TAG 5: Das große Abschlussprojekt',
+            'eltern-guide.md': '👨‍👩‍👧‍👦 Eltern-Guide',
+            'Wochenplan.md': '📋 Wochenplan',
+            'bonus-ideen.md': '💡 Bonus-Ideen'
+        };
+        
+        if (!file) {
+            document.getElementById('content').innerHTML = `
+                <div class="error">
+                    <div class="error-icon">🤔</div>
+                    <p>Keine Datei angegeben. Bitte gehe zurück zur <a href="index.html" style="color: var(--accent);">Übersicht</a>.</p>
+                </div>
+            `;
+        } else {
+            fetch(file)
+                .then(response => {
+                    if (!response.ok) throw new Error('Datei nicht gefunden');
+                    return response.text();
+                })
+                .then(text => {
+                    document.getElementById('content').innerHTML = marked.parse(text);
+                    document.title = (fileTitles[file] || 'KI-Meisterkurs') + ' - Lektion';
+                })
+                .catch(err => {
+                    document.getElementById('content').innerHTML = `
+                        <div class="error">
+                            <div class="error-icon">😕</div>
+                            <p><strong>Fehler beim Laden:</strong> ${err.message}</p>
+                            <p>Die Datei "${file}" konnte nicht geladen werden.</p>
+                            <p><a href="index.html" style="color: var(--accent);">← Zurück zur Übersicht</a></p>
+                        </div>
+                    `;
+                });
+        }
+        
+        // Theme laden
+        const savedTheme = localStorage.getItem('ki-meisterkurs-theme') || 'space';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>

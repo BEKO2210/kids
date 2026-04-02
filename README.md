@@ -14,11 +14,14 @@ Dieses Repository enthält eine interaktive HTML-Website für den KI-Meisterkurs
 👉 **Öffne `index.html` im Browser** oder hoste die Seite auf GitHub Pages!
 
 ### Features der Website:
-- 🎨 **3 Themes**: Minecraft-Style, Roblox-Style & Space-Style
-- 🏆 **Badge-Tracker**: Sammle alle 5 Badges mit Fortschrittsbalken
+- 🎨 **3 Themes**: Minecraft-Style 🧱, Roblox-Style 🎮 & Space-Style 🚀
+- 🏆 **Badge-Tracker**: Sammle alle 5 Badges mit animiertem Fortschrittsbalken
+- 📖 **Integrierter Markdown-Reader**: Alle 5 Tageslektionen direkt lesbar
 - 📱 **Responsive Design**: Funktioniert auf Laptop, Tablet und Handy
 - ✨ **Animationen**: Confetti, schwebende Blöcke, leuchtende Effekte
 - 💾 **Speicherfunktion**: Dein Fortschritt bleibt im Browser gespeichert
+- 👨‍👩‍👧‍👦 **Eltern-Guide**: Direkt in die Website integriert
+- 📝 **Arbeitsblätter**: Alle 4 Arbeitsblätter verlinkt
 
 ---
 
@@ -38,10 +41,24 @@ Dieses Repository enthält eine interaktive HTML-Website für den KI-Meisterkurs
 
 ```
 .
-├── index.html      # Die Haupt-Website
-├── style.css       # Bunte Styles & Animationen
-├── script.js       # Interaktive Badge-Tracker & Themes
-└── README.md       # Diese Datei
+├── index.html                  # Startseite mit Navigation & Badge-Tracker
+├── viewer.html                 # Markdown-Reader für alle Lektionen
+├── style.css                   # Styles, Themes & Animationen
+├── script.js                   # Interaktivität (Badges, Confetti, Themes)
+├── README.md                   # Diese Datei
+├── Wochenplan.md               # Übersicht der Woche
+├── bonus-ideen.md              # Zusätzliche Ideen & Challenges
+├── eltern-guide.md             # Wichtig für Eltern!
+├── tag-1-was-ist-ki.md         # Tag 1: Grundlagen
+├── tag-2-prompt-engineering.md # Tag 2: Gute Prompts
+├── tag-3-kreativ-ki.md         # Tag 3: Bilder & Geschichten
+├── tag-4-problemloesen.md      # Tag 4: Lernen & Debuggen
+├── tag-5-abschlussprojekt.md   # Tag 5: Finale
+└── arbeitsblaetter/            # Ausdruckbare Übungen
+    ├── tag1_ki_oder_nicht.md
+    ├── tag2_prompt_upgrade.md
+    ├── tag3_charakter_designer.md
+    └── tag4_debug_detektiv.md
 ```
 
 ---
@@ -65,6 +82,7 @@ Dieses Repository enthält eine interaktive HTML-Website für den KI-Meisterkurs
 - **HTML5** – Semantische Struktur
 - **CSS3** – Grid, Flexbox, Animationen, Glassmorphism
 - **Vanilla JavaScript** – Interaktivität ohne externe Dependencies
+- **Marked.js** – Markdown-Rendering direkt im Browser
 - **Google Fonts (Nunito)** – Kinderfreundliche Schriftart
 
 ---
@@ -89,6 +107,17 @@ Nach diesem Kurs können die Kinder:
 - Elterliche Aufsicht bei allen Online-Aktivitäten
 - KI-Ausgaben kritisch hinterfragen
 - Urheberrechte beachten (keine kommerzielle Nutzung)
+
+---
+
+## 📝 Arbeitsblätter
+
+Alle Arbeitsblätter befinden sich im Ordner `arbeitsblaetter/`:
+
+1. **Tag 1:** KI oder Nicht-KI? (`tag1_ki_oder_nicht.md`)
+2. **Tag 2:** Prompt-Upgrade (`tag2_prompt_upgrade.md`)
+3. **Tag 3:** Charakter-Designer (`tag3_charakter_designer.md`)
+4. **Tag 4:** Debug-Detektiv (`tag4_debug_detektiv.md`)
 
 ---
 

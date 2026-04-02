@@ -114,23 +114,12 @@ function updateProgressBar() {
     }
 }
 
-function toggleDay(day) {
-    const details = document.getElementById(`details-${day}`);
-    const isOpen = details.classList.contains('open');
-    
-    // Close all others
-    document.querySelectorAll('.day-details').forEach(el => {
-        el.classList.remove('open');
-    });
-    
-    // Open clicked if it was closed
-    if (!isOpen) {
-        details.classList.add('open');
-    }
-}
-
 function scrollToCourse() {
     document.getElementById('course').scrollIntoView({ behavior: 'smooth' });
+}
+
+function scrollToSheets() {
+    document.getElementById('arbeitsblaetter').scrollIntoView({ behavior: 'smooth' });
 }
 
 // Confetti Effect
