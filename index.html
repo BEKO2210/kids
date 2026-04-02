@@ -3,249 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI-Meisterkurs für junge Entdecker</title>
-    <link rel="stylesheet" href="style.css">
+    <title>KI-Meisterkurs – Für junge Entdecker</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="stars" id="stars"></div>
-    
-    <header class="hero">
-        <div class="hero-content">
-            <div class="mascot">🤖</div>
-            <h1>KI-Meisterkurs</h1>
-            <p class="subtitle">für junge Entdecker</p>
-            <p class="kids-names">Maxim • Alia • Amir</p>
-            <div class="hero-badges">
-                <span class="badge-mini" id="hero-badge-1">🥉</span>
-                <span class="badge-mini" id="hero-badge-2">🥈</span>
-                <span class="badge-mini" id="hero-badge-3">🎨</span>
-                <span class="badge-mini" id="hero-badge-4">⚙️</span>
-                <span class="badge-mini" id="hero-badge-5">🥇</span>
-            </div>
-            <div class="hero-buttons">
-                <button class="cta-button" onclick="scrollToCourse()">Starte dein Abenteuer 🚀</button>
-                <a href="viewer.html?file=eltern-guide.md" class="cta-button secondary">👨‍👩‍👧‍👦 Für Eltern</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="navbar-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+                KI-Meisterkurs
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="#kurs" class="active">Der Kurs</a></li>
+                <li><a href="#materialien">Materialien</a></li>
+                <li><a href="eltern.html">Für Eltern</a></li>
+            </ul>
+            <div class="navbar-actions">
+                <a href="wochenplan.html" class="btn btn-ghost">Wochenplan</a>
             </div>
         </div>
-        <div class="floating-blocks">
-            <div class="block">🧱</div>
-            <div class="block">🎮</div>
-            <div class="block">💎</div>
-            <div class="block">⚔️</div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+                5 Tage KI-Abenteuer
+            </div>
+            <h1>Werde zum <span>KI-Experten</span></h1>
+            <p class="hero-subtitle">
+                Ein interaktiver Kurs für Maxim, Alia und Amir. Entdecke die Welt der Künstlichen Intelligenz – 
+                spielerisch, verständlich und mit echten Projekten.
+            </p>
+            <div class="hero-actions">
+                <a href="#kurs" class="btn btn-primary btn-lg">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    Kurs starten
+                </a>
+                <a href="eltern.html" class="btn btn-secondary btn-lg">
+                    Informationen für Eltern
+                </a>
+            </div>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    5 Tage á 45 Minuten
+                </div>
+                <div class="hero-meta-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                    4 Arbeitsblätter
+                </div>
+                <div class="hero-meta-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    5 Badges zu sammeln
+                </div>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section class="progress-section">
-            <h2>🏆 Dein Fortschritt</h2>
-            <div class="progress-bar-container">
-                <div class="progress-bar" id="progressBar"></div>
-                <span class="progress-text" id="progressText">0 / 5 Badges</span>
-            </div>
-            <div class="theme-toggle">
-                <button onclick="setTheme('minecraft')" class="theme-btn minecraft" title="Minecraft-Style">🧱</button>
-                <button onclick="setTheme('roblox')" class="theme-btn roblox" title="Roblox-Style">🎮</button>
-                <button onclick="setTheme('space')" class="theme-btn space" title="Space-Style">🚀</button>
-            </div>
-        </section>
-
-        <section class="quick-nav">
-            <h2>📁 Alle Materialien</h2>
-            <div class="nav-grid">
-                <a href="viewer.html?file=Wochenplan.md" class="nav-card">
-                    <span class="nav-icon">📅</span>
-                    <span class="nav-label">Wochenplan</span>
-                </a>
-                <a href="viewer.html?file=bonus-ideen.md" class="nav-card">
-                    <span class="nav-icon">💡</span>
-                    <span class="nav-label">Bonus-Ideen</span>
-                </a>
-                <a href="viewer.html?file=eltern-guide.md" class="nav-card">
-                    <span class="nav-icon">👨‍👩‍👧‍👦</span>
-                    <span class="nav-label">Eltern-Guide</span>
-                </a>
-                <a href="#arbeitsblaetter" class="nav-card" onclick="scrollToSheets(); return false;">
-                    <span class="nav-icon">📝</span>
-                    <span class="nav-label">Arbeitsblätter</span>
-                </a>
-            </div>
-        </section>
-
-        <section class="course-days" id="course">
-            <h2>📚 Die 5 Tage im Überblick</h2>
-            <div class="days-grid">
-                <article class="day-card" data-day="1">
-                    <div class="day-header">
-                        <span class="day-number">Tag 1</span>
-                        <span class="day-badge" id="badge-1">🔒</span>
+    <!-- Fortschritt -->
+    <section class="section">
+        <div class="container">
+            <div class="card progress-card" id="progress-card">
+                <div class="card-header">
+                    <div>
+                        <h3>Dein Fortschritt</h3>
+                        <p>Sammle alle 5 Badges, um ein KI-Experte zu werden</p>
                     </div>
-                    <h3>Was ist KI?</h3>
-                    <p class="day-theme">Minecraft-Mobs als "einfache KI"</p>
-                    <div class="day-preview">
-                        <ul>
-                            <li>🧟 Lernen, wie Zombies und Creepers "denken"</li>
-                            <li>🤖 Bau deinen eigenen Chatbot</li>
-                            <li>🧠 Verstehe den Unterschied: Mensch vs. Maschine</li>
-                        </ul>
-                    </div>
-                    <div class="day-actions">
-                        <a href="viewer.html?file=tag-1-was-ist-ki.md" class="action-btn read-btn">📖 Zur Lektion</a>
-                        <button class="collect-btn" onclick="collectBadge(1)">Badge sammeln 🥉</button>
-                    </div>
-                </article>
-
-                <article class="day-card" data-day="2">
-                    <div class="day-header">
-                        <span class="day-number">Tag 2</span>
-                        <span class="day-badge" id="badge-2">🔒</span>
-                    </div>
-                    <h3>Prompt Engineering</h3>
-                    <p class="day-theme">Roblox-Befehle & Chat</p>
-                    <div class="day-preview">
-                        <ul>
-                            <li>💬 Warum "mach was!" nicht genug ist</li>
-                            <li>✨ Die Magie präziser Fragen</li>
-                            <li>🏗️ Das 5-Sterne-Prompt-Rezept</li>
-                        </ul>
-                    </div>
-                    <div class="day-actions">
-                        <a href="viewer.html?file=tag-2-prompt-engineering.md" class="action-btn read-btn">📖 Zur Lektion</a>
-                        <button class="collect-btn" onclick="collectBadge(2)">Badge sammeln 🥈</button>
-                    </div>
-                </article>
-
-                <article class="day-card" data-day="3">
-                    <div class="day-header">
-                        <span class="day-number">Tag 3</span>
-                        <span class="day-badge" id="badge-3">🔒</span>
-                    </div>
-                    <h3>Kreativ mit KI</h3>
-                    <p class="day-theme">Minecraft-Skin-Designer</p>
-                    <div class="day-preview">
-                        <ul>
-                            <li>🎨 Erstelle eigene Skins mit KI</li>
-                            <li>📖 Schreibe spannende Geschichten</li>
-                            <li>🦸 Designe deinen Superhelden</li>
-                        </ul>
-                    </div>
-                    <div class="day-actions">
-                        <a href="viewer.html?file=tag-3-kreativ-ki.md" class="action-btn read-btn">📖 Zur Lektion</a>
-                        <button class="collect-btn" onclick="collectBadge(3)">Badge sammeln 🎨</button>
-                    </div>
-                </article>
-
-                <article class="day-card" data-day="4">
-                    <div class="day-header">
-                        <span class="day-number">Tag 4</span>
-                        <span class="day-badge" id="badge-4">🔒</span>
-                    </div>
-                    <h3>Problemlösen mit KI</h3>
-                    <p class="day-theme">Redstone-Logik</p>
-                    <div class="day-preview">
-                        <ul>
-                            <li>⚡ Redstone = KI-Logik verstehen</li>
-                            <li>🐛 Werde Bug-Jäger wie ein Pro</li>
-                            <li>🔧 KI als dein Lernhelfer nutzen</li>
-                        </ul>
-                    </div>
-                    <div class="day-actions">
-                        <a href="viewer.html?file=tag-4-problemloesen.md" class="action-btn read-btn">📖 Zur Lektion</a>
-                        <button class="collect-btn" onclick="collectBadge(4)">Badge sammeln ⚙️</button>
-                    </div>
-                </article>
-
-                <article class="day-card final-card" data-day="5">
-                    <div class="day-header">
-                        <span class="day-number">Tag 5</span>
-                        <span class="day-badge" id="badge-5">🔒</span>
-                    </div>
-                    <h3>Das große Abschlussprojekt</h3>
-                    <p class="day-theme">Eigenes Spiel-Konzept</p>
-                    <div class="day-preview">
-                        <ul>
-                            <li>🎮 Entwickle dein eigenes Game</li>
-                            <li>📝 Präsentiere deine Idee</li>
-                            <li>🏆 Werde offizieller KI-Experte</li>
-                        </ul>
-                    </div>
-                    <div class="day-actions">
-                        <a href="viewer.html?file=tag-5-abschlussprojekt.md" class="action-btn read-btn">📖 Zur Lektion</a>
-                        <button class="collect-btn" onclick="collectBadge(5)">Badge sammeln 🥇</button>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="sheets-section" id="arbeitsblaetter">
-            <h2>📝 Arbeitsblätter</h2>
-            <div class="sheets-grid">
-                <a href="arbeitsblaetter/tag1_ki_oder_nicht.md" class="sheet-card" target="_blank">
-                    <span class="sheet-icon">🧩</span>
-                    <h4>KI oder Nicht-KI?</h4>
-                    <p>Tag 1</p>
-                </a>
-                <a href="arbeitsblaetter/tag2_prompt_upgrade.md" class="sheet-card" target="_blank">
-                    <span class="sheet-icon">⭐</span>
-                    <h4>Prompt-Upgrade</h4>
-                    <p>Tag 2</p>
-                </a>
-                <a href="arbeitsblaetter/tag3_charakter_designer.md" class="sheet-card" target="_blank">
-                    <span class="sheet-icon">🦸</span>
-                    <h4>Charakter-Designer</h4>
-                    <p>Tag 3</p>
-                </a>
-                <a href="arbeitsblaetter/tag4_debug_detektiv.md" class="sheet-card" target="_blank">
-                    <span class="sheet-icon">🔍</span>
-                    <h4>Debug-Detektiv</h4>
-                    <p>Tag 4</p>
-                </a>
-            </div>
-        </section>
-
-        <section class="tips-section">
-            <h2>💡 Tipps für kleine KI-Profis</h2>
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <span class="tip-icon">❓</span>
-                    <p>Stellt viele Fragen!</p>
+                    <span class="card-badge" id="progress-badge">0 / 5</span>
                 </div>
-                <div class="tip-card">
-                    <span class="tip-icon">🔬</span>
-                    <p>Experimentiert frei!</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
                 </div>
-                <div class="tip-card">
-                    <span class="tip-icon">🤝</span>
-                    <p>Helft euch gegenseitig!</p>
-                </div>
-                <div class="tip-card">
-                    <span class="tip-icon">😄</span>
-                    <p>Habt Spaß!</p>
-                </div>
+                <p id="progress-text">Starte mit Tag 1, um deinen ersten Badge zu erhalten.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="safety-section">
-            <h2>🔒 Sicherheitshinweise</h2>
-            <div class="safety-box">
-                <ul>
-                    <li>🚫 Keine persönlichen Daten in KI-Tools eingeben</li>
-                    <li>👨‍👩‍👧 Elterliche Aufsicht bei allen Online-Aktivitäten</li>
-                    <li>🧐 KI-Ausgaben kritisch hinterfragen</li>
-                    <li>⚖️ Urheberrechte beachten (keine kommerzielle Nutzung)</li>
-                </ul>
+    <!-- Kurs-Tage -->
+    <section class="section" id="kurs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Die 5 Tage im Überblick</h2>
+                <p>Jeder Tag bringt neue Erkenntnisse und eine Herausforderung. Klicke auf einen Tag, um zu starten.</p>
             </div>
-        </section>
-    </main>
+            
+            <div class="card-grid">
+                <!-- Tag 1 -->
+                <article class="card" data-day="1">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                                <path d="M12 2a10 10 0 0 1 10 10"/>
+                                <path d="M12 12L2.5 12"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge locked" id="badge-1">Gesperrt</span>
+                    </div>
+                    <h3>Tag 1: Was ist KI?</h3>
+                    <p>Verstehe den Unterschied zwischen einfachen Regeln und echter KI. Wir bauen einen einfachen Chatbot und lernen, wie Minecraft-Mobs "denken".</p>
+                    <div class="card-footer">
+                        <a href="tag-1.html" class="btn btn-primary">Zur Lektion</a>
+                        <button class="btn btn-secondary" onclick="collectBadge(1)">Badge sammeln</button>
+                    </div>
+                </article>
 
-    <footer>
-        <p>🚀 KI-Meisterkurs für Maxim, Alia & Amir</p>
-        <p class="footer-sub">Gemacht mit ❤️ und etwas KI-Magie</p>
+                <!-- Tag 2 -->
+                <article class="card" data-day="2">
+                    <div class="card-header">
+                        <div class="card-icon teal">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge locked" id="badge-2">Gesperrt</span>
+                    </div>
+                    <h3>Tag 2: Prompt Engineering</h3>
+                    <p>Lerne die Kunst der perfekten Frage. Wie bekommst du genau die Antwort, die du brauchst? Mit dem 5-Sterne-Prompt-Rezept.</p>
+                    <div class="card-footer">
+                        <a href="tag-2.html" class="btn btn-primary">Zur Lektion</a>
+                        <button class="btn btn-secondary" onclick="collectBadge(2)">Badge sammeln</button>
+                    </div>
+                </article>
+
+                <!-- Tag 3 -->
+                <article class="card" data-day="3">
+                    <div class="card-header">
+                        <div class="card-icon purple">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                                <path d="M2 2l7.586 7.586"/>
+                                <circle cx="11" cy="11" r="2"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge locked" id="badge-3">Gesperrt</span>
+                    </div>
+                    <h3>Tag 3: Kreativ mit KI</h3>
+                    <p>Erstelle eigene Minecraft-Skins, schreibe Geschichten und designe Charaktere. Die KI wird zu deinem kreativen Partner.</p>
+                    <div class="card-footer">
+                        <a href="tag-3.html" class="btn btn-primary">Zur Lektion</a>
+                        <button class="btn btn-secondary" onclick="collectBadge(3)">Badge sammeln</button>
+                    </div>
+                </article>
+
+                <!-- Tag 4 -->
+                <article class="card" data-day="4">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge locked" id="badge-4">Gesperrt</span>
+                    </div>
+                    <h3>Tag 4: Problemlösen mit KI</h3>
+                    <p>Nutze KI als Lernhelfer. Verstehe Redstone-Logik, werde Bug-Jäger und löse knifflige Probleme Schritt für Schritt.</p>
+                    <div class="card-footer">
+                        <a href="tag-4.html" class="btn btn-primary">Zur Lektion</a>
+                        <button class="btn btn-secondary" onclick="collectBadge(4)">Badge sammeln</button>
+                    </div>
+                </article>
+
+                <!-- Tag 5 -->
+                <article class="card" data-day="5">
+                    <div class="card-header">
+                        <div class="card-icon coral">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="7"/>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge locked" id="badge-5">Gesperrt</span>
+                    </div>
+                    <h3>Tag 5: Das Abschlussprojekt</h3>
+                    <p>Entwickle dein eigenes Spielkonzept mit KI-Unterstützung. Präsentiere deine Idee und werde offizieller KI-Experte.</p>
+                    <div class="card-footer">
+                        <a href="tag-5.html" class="btn btn-primary">Zur Lektion</a>
+                        <button class="btn btn-secondary" onclick="collectBadge(5)">Badge sammeln</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materialien -->
+    <section class="section" id="materialien" style="background: var(--surface);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Weitere Materialien</h2>
+                <p>Arbeitsblätter, Wochenplan und zusätzliche Ressourcen für dein KI-Abenteuer.</p>
+            </div>
+            
+            <div class="card-grid">
+                <a href="wochenplan.html" class="card" style="text-decoration: none; color: inherit;">
+                    <div class="card-header">
+                        <div class="card-icon teal">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Wochenplan</h3>
+                    <p>Die komplette Übersicht aller 5 Tage mit Zeitplan und Lernzielen.</p>
+                </a>
+
+                <a href="arbeitsblaetter.html" class="card" style="text-decoration: none; color: inherit;">
+                    <div class="card-header">
+                        <div class="card-icon purple">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Arbeitsblätter</h3>
+                    <p>Vier interaktive Arbeitsblätter zum Ausdrucken oder Ausfüllen am Bildschirm.</p>
+                </a>
+
+                <a href="eltern.html" class="card" style="text-decoration: none; color: inherit;">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Für Eltern</h3>
+                    <p>Informationen für Erwachsene: Was die Kinder lernen und wie ihr unterstützen könnt.</p>
+                </a>
+
+                <a href="bonus.html" class="card" style="text-decoration: none; color: inherit;">
+                    <div class="card-header">
+                        <div class="card-icon coral">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Bonus-Ideen</h3>
+                    <p>Zusätzliche Projekte und Ideen für alle, die noch mehr entdecken wollen.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>KI-Meisterkurs für Maxim, Alia und Amir</p>
+            <p class="text-muted">Gemacht mit Liebe und ordentlich Koffein</p>
+        </div>
     </footer>
 
-    <div class="confetti" id="confetti"></div>
+    <script>
+        // Badge Management
+        const BADGES = {
+            1: { name: 'KI-Entdecker', color: 'var(--primary)' },
+            2: { name: 'Prompt-Meister', color: 'var(--accent-teal)' },
+            3: { name: 'Kreativ-Genie', color: 'var(--accent-purple)' },
+            4: { name: 'Problemlöser', color: 'var(--primary)' },
+            5: { name: 'KI-Experte', color: 'var(--accent-coral)' }
+        };
 
-    <script src="script.js"></script>
+        let unlockedBadges = new Set();
+
+        function loadProgress() {
+            const saved = localStorage.getItem('ki-meisterkurs-badges');
+            if (saved) {
+                unlockedBadges = new Set(JSON.parse(saved));
+                unlockedBadges.forEach(day => updateBadgeVisuals(day));
+                updateProgressBar();
+            }
+        }
+
+        function saveProgress() {
+            localStorage.setItem('ki-meisterkurs-badges', JSON.stringify([...unlockedBadges]));
+        }
+
+        function collectBadge(day) {
+            if (unlockedBadges.has(day)) return;
+            
+            unlockedBadges.add(day);
+            saveProgress();
+            updateBadgeVisuals(day);
+            updateProgressBar();
+            
+            // Animation
+            const card = document.querySelector(`.card[data-day="${day}"]`);
+            card.style.transform = 'scale(1.02)';
+            setTimeout(() => card.style.transform = '', 200);
+            
+            // Celebration for all badges
+            if (unlockedBadges.size === 5) {
+                setTimeout(() => {
+                    alert('Herzlichen Glückwunsch! Du bist jetzt offizieller KI-Experte!');
+                }, 300);
+            }
+        }
+
+        function updateBadgeVisuals(day) {
+            const badgeEl = document.getElementById(`badge-${day}`);
+            if (badgeEl) {
+                badgeEl.textContent = BADGES[day].name;
+                badgeEl.classList.remove('locked');
+                badgeEl.classList.add('unlocked');
+            }
+            
+            const card = document.querySelector(`.card[data-day="${day}"]`);
+            const btn = card?.querySelector('button');
+            if (btn) {
+                btn.textContent = 'Gesammelt';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+            }
+        }
+
+        function updateProgressBar() {
+            const progress = (unlockedBadges.size / 5) * 100;
+            const fill = document.getElementById('progress-fill');
+            const badge = document.getElementById('progress-badge');
+            const text = document.getElementById('progress-text');
+            
+            fill.style.width = `${progress}%`;
+            badge.textContent = `${unlockedBadges.size} / 5`;
+            
+            if (unlockedBadges.size === 5) {
+                text.textContent = 'Herzlichen Glückwunsch! Du hast alle Badges gesammelt!';
+                document.getElementById('progress-card').style.background = 
+                    'linear-gradient(135deg, var(--success) 0%, #059669 100%)';
+            } else if (unlockedBadges.size === 0) {
+                text.textContent = 'Starte mit Tag 1, um deinen ersten Badge zu erhalten.';
+            } else {
+                text.textContent = `Gut gemacht! Noch ${5 - unlockedBadges.size} Badges bis zum Ziel.`;
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadProgress);
+    </script>
 </body>
 </html>

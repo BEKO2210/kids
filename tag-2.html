@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag 2: Prompt Engineering – KI-Meisterkurs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="navbar-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+                KI-Meisterkurs
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Übersicht</a></li>
+                <li><a href="tag-1.html">Tag 1</a></li>
+                <li><a href="tag-2.html" class="active">Tag 2</a></li>
+                <li><a href="tag-3.html">Tag 3</a></li>
+                <li><a href="tag-4.html">Tag 4</a></li>
+                <li><a href="tag-5.html">Tag 5</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="lesson-header">
+        <div class="container lesson-header-content">
+            <div>
+                <span class="card-badge" style="margin-bottom: 0.5rem; display: inline-block;">Badge: Prompt-Meister</span>
+                <h1>Tag 2: Prompt Engineering</h1>
+            </div>
+            <a href="index.html" class="btn btn-secondary">← Zurück zur Übersicht</a>
+        </div>
+    </header>
+
+    <main class="lesson-content">
+        <blockquote>
+            <p><strong>Die Qualität der Antwort hängt von der Qualität der Frage ab!</strong></p>
+        </blockquote>
+
+        <p>Stellt euch vor, ihr geht in ein Restaurant:</p>
+        <ul>
+            <li><strong>Schlecht:</strong> "Bring Essen!" → Was bekommt ihr? Vielleicht was ihr nicht mögt!</li>
+            <li><strong>Gut:</strong> "Ich möchte eine Pizza Margherita, mittelgroß, ohne Basilikum, bitte" → Genau was ihr wollt!</li>
+        </ul>
+
+        <hr>
+
+        <h2>Das 5-Sterne-Prompt-Rezept</h2>
+
+        <p>Ein perfekter Prompt hat 5 Bestandteile:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Bestandteil</th>
+                    <th>Beschreibung</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Rolle</strong></td>
+                    <td>Wer soll die KI sein?</td>
+                </tr>
+                <tr>
+                    <td><strong>Aufgabe</strong></td>
+                    <td>Was genau soll sie machen?</td>
+                </tr>
+                <tr>
+                    <td><strong>Kontext</strong></td>
+                    <td>Hintergrundinformationen</td>
+                </tr>
+                <tr>
+                    <td><strong>Format</strong></td>
+                    <td>Wie soll die Antwort aussehen?</td>
+                </tr>
+                <tr>
+                    <td><strong>Beschränkungen</strong></td>
+                    <td>Was soll sie NICHT tun?</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Beispiel: Minecraft-Haus bauen</h3>
+
+        <div class="info-box warning">
+            <div class="info-box-title">Schlechter Prompt (1 Stern)</div>
+            <pre><code>Beschreib ein Minecraft-Haus.</code></pre>
+            <p><em>Was bekommt ihr? Eine langweilige, generische Beschreibung.</em></p>
+        </div>
+
+        <div class="info-box tip">
+            <div class="info-box-title">Perfekter Prompt (5 Sterne)</div>
+            <pre><code>ROLLE: Du bist ein erfahrener Minecraft-Architekt und 
+       Bauevent-Organisator.
+
+AUFGABE: Entwerfe ein detailliertes Konzept für ein 
+         mittelalterliches Schloss.
+
+KONTEXT: Das Schloss soll in einer Gebirgsbiom gebaut werden.
+         Es soll für 3 Spieler (Maxim, Alia, Amir) Wohnraum bieten.
+         Jeder soll einen eigenen Turm haben.
+
+FORMAT: Gib mir eine Liste mit:
+        1. Gesamtgröße (Blöcke)
+        2. Benötigte Materialien mit Mengen
+        3. Beschreibung jedes Turms (wer bekommt welchen)
+        4. Spezielle Features (Geheimgänge, Redstone-Tricks?)
+
+BESCHRÄNKUNGEN: Verwende nur vanilla Materialien (keine Mods).
+               Keine Redstone-Automatisierung (zu kompliziert).</code></pre>
+            <p><strong>Was bekommt ihr?</strong> Eine detaillierte, nutzbare Bauanleitung!</p>
+        </div>
+
+        <hr>
+
+        <h2>Praxis: Der Iterations-Prozess</h2>
+
+        <div class="info-box note">
+            <div class="info-box-title">Wichtig</div>
+            <p>Ein Prompt ist selten perfekt beim ersten Mal!</p>
+        </div>
+
+        <h3>Das Verbessern eines Prompts</h3>
+
+        <h4>Runde 1</h4>
+        <pre><code>Erklär mir Redstone in Minecraft.</code></pre>
+        <p><em>KI gibt generelle Erklärung – vielleicht zu einfach oder zu komplex</em></p>
+
+        <h4>Runde 2 (nachlesen und spezifizieren)</h4>
+        <pre><code>Erklär mir Redstone in Minecraft. Ich bin Anfänger und 
+verstehe noch nicht, wie man Türen öffnet.</code></pre>
+        <p><em>Besser! Aber immer noch nicht perfekt.</em></p>
+
+        <h4>Runde 3 (noch spezifischer)</h4>
+        <pre><code>Erklär mir Schritt für Schritt, wie man in Minecraft 
+eine geheime Tür mit einem Hebel baut. 
+Ich bin Anfänger und verstehe "Redstone-Staub" und 
+"Redstone-Fackeln" noch nicht. 
+Liste die genauen Materialien auf, die ich brauche.</code></pre>
+        <p><strong>Perfekt! Das ist umsetzbar!</strong></p>
+
+        <hr>
+
+        <h2>Pro-Tipps für Prompt-Meister</h2>
+
+        <h3>1. Beispiele geben (Few-Shot Prompting)</h3>
+        <pre><code>Schreibe mir einen Dialog zwischen zwei Minecraft-Spielern.
+
+Beispiel-Stil:
+Spieler 1: "Hast du Diamanten gesehen?"
+Spieler 2: "Ja, auf Ebene -54, aber pass auf die Lava auf!"
+
+Jetzt schreibe einen Dialog über das Finden eines Dorfes.</code></pre>
+
+        <h3>2. Schritt-für-Schritt verlangen</h3>
+        <pre><code>Erkläre mir, wie man in Roblox ein Script schreibt.
+Gehe Schritt für Schritt vor und warte nach jedem 
+Schritt auf mein "OK" bevor du zum nächsten gehst.</code></pre>
+
+        <h3>3. Rollenspiele nutzen</h3>
+        <pre><code>Spiele einen erfahrenen Minecraft-Speedrunner.
+Ich bin ein Anfänger und stelle dir Fragen.
+Antworte enthusiastisch und gib praktische Tipps.</code></pre>
+
+        <h3>4. Format vorgeben</h3>
+        <pre><code>Gib mir die Antwort in diesem Format:
+- Zuerst eine Zusammenfassung in einem Satz
+- Dann eine nummerierte Liste mit Details
+- Zuletzt einen praktischen Tipp</code></pre>
+
+        <hr>
+
+        <h2>Übung: Die Prompt-Challenge</h2>
+
+        <h3>Aufgabe für Maxim, Alia und Amir</h3>
+
+        <p>Jeder bekommt eine Aufgabe und soll den perfekten Prompt schreiben.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Aufgabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Maxim</strong> – Der Baumeister</td>
+                    <td>Du willst eine automatische Farm in Minecraft bauen.</td>
+                </tr>
+                <tr>
+                    <td><strong>Alia</strong> – Die Kreative</td>
+                    <td>Du willst eine Geschichte über 3 Abenteurer im Weltraum schreiben.</td>
+                </tr>
+                <tr>
+                    <td><strong>Amir</strong> – Der Stratege</td>
+                    <td>Du willst Tipps für ein Roblox Obby (Obstacle Course).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Schritt-für-Schritt</h3>
+
+        <ol>
+            <li><strong>Schreibt einen ersten, schlechten Prompt</strong> (bewusst schlecht!)</li>
+            <li><strong>Analysiert:</strong> Was fehlt? Was ist unklar?</li>
+            <li><strong>Verwendet das 5-Sterne-Rezept</strong></li>
+            <li><strong>Testet euren Prompt</strong> (wenn möglich mit einer KI)</li>
+            <li><strong>Verbessert</strong> basierend auf der Antwort</li>
+        </ol>
+
+        <hr>
+
+        <h2>Checkliste für den Prompt-Meister Badge</h2>
+
+        <ul class="checklist">
+            <li><input type="checkbox"> Ich verstehe das 5-Sterne-Prompt-Rezept</li>
+            <li><input type="checkbox"> Ich kann einen schlechten von einem guten Prompt unterscheiden</li>
+            <li><input type="checkbox"> Ich habe mindestens 3 Prompts verbessert (iteriert)</li>
+            <li><input type="checkbox"> Ich kann der KI eine Rolle zuweisen</li>
+            <li><input type="checkbox"> Ich verlange spezifische Formate</li>
+        </ul>
+
+        <hr>
+
+        <h2>Hausaufgabe: Der Prompt-Sammler</h2>
+
+        <p>Sammelt bis morgen:</p>
+        <ul>
+            <li>3 Beispiele für schlechte Prompts (die ihr irgendwo gesehen habt)</li>
+            <li>Eure verbesserte Version dazu</li>
+        </ul>
+
+        <div class="info-box tip">
+            <div class="info-box-title">Tipp</div>
+            <p>Fragt auch mal die Eltern, wie sie nach etwas googeln!</p>
+        </div>
+
+        <hr>
+
+        <div class="text-center mt-4">
+            <a href="tag-1.html" class="btn btn-secondary btn-lg" style="margin-right: 1rem;">← Zurück zu Tag 1</a>
+            <a href="tag-3.html" class="btn btn-primary btn-lg">Weiter zu Tag 3: Kreativ mit KI →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>KI-Meisterkurs für Maxim, Alia und Amir</p>
+        </div>
+    </footer>
+</body>
+</html>
