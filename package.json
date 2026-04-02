@@ -1,0 +1,26 @@
+{
+  "name": "kids-ki-meisterkurs-tests",
+  "version": "1.0.0",
+  "description": "Tests für den KI-Meisterkurs",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint:html": "html-validate *.html",
+    "lint:css": "stylelint styles.css",
+    "validate": "npm run lint:html && npm run lint:css && npm test"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "html-validate": "^8.7.4",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0",
+    "jsdom": "^24.0.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testMatch": ["**/tests/**/*.test.js"],
+    "collectCoverageFrom": ["*.html", "*.css"]
+  }
+}
