@@ -50,7 +50,7 @@
             </div>
             <h1>Werde zum <span>KI-Experten</span></h1>
             <p class="hero-subtitle">
-                Ein interaktiver Kurs für Maxim, Alia und Amir. Entdecke die Welt der Künstlichen Intelligenz – 
+                Willkommen! Ein interaktiver Kurs für Maxim, Alia und Amir. Entdecke die Welt der Künstlichen Intelligenz – 
                 spielerisch, verständlich und mit echten Projekten.
             </p>
             <div class="hero-actions">
@@ -116,7 +116,7 @@
                 <p>Jeder Tag bringt neue Erkenntnisse und eine Herausforderung. Klicke auf einen Tag, um zu starten.</p>
             </div>
             
-            <div class="card-grid">
+            <main class="card-grid">
                 <!-- Tag 1 -->
                 <article class="card" data-day="1">
                     <div class="card-header">
@@ -133,7 +133,7 @@
                     <p>Verstehe den Unterschied zwischen einfachen Regeln und echter KI. Wir bauen einen einfachen Chatbot und lernen, wie Minecraft-Mobs "denken".</p>
                     <div class="card-footer">
                         <a href="tag-1.html" class="btn btn-primary">Zur Lektion</a>
-                        <button class="btn btn-secondary" onclick="collectBadge(1)">Badge sammeln</button>
+                        <button class="btn btn-secondary collect-badge-btn" data-day="1">Badge sammeln</button>
                     </div>
                 </article>
 
@@ -151,7 +151,7 @@
                     <p>Lerne die Kunst der perfekten Frage. Wie bekommst du genau die Antwort, die du brauchst? Mit dem 5-Sterne-Prompt-Rezept.</p>
                     <div class="card-footer">
                         <a href="tag-2.html" class="btn btn-primary">Zur Lektion</a>
-                        <button class="btn btn-secondary" onclick="collectBadge(2)">Badge sammeln</button>
+                        <button class="btn btn-secondary collect-badge-btn" data-day="2">Badge sammeln</button>
                     </div>
                 </article>
 
@@ -172,7 +172,7 @@
                     <p>Erstelle eigene Minecraft-Skins, schreibe Geschichten und designe Charaktere. Die KI wird zu deinem kreativen Partner.</p>
                     <div class="card-footer">
                         <a href="tag-3.html" class="btn btn-primary">Zur Lektion</a>
-                        <button class="btn btn-secondary" onclick="collectBadge(3)">Badge sammeln</button>
+                        <button class="btn btn-secondary collect-badge-btn" data-day="3">Badge sammeln</button>
                     </div>
                 </article>
 
@@ -192,7 +192,7 @@
                     <p>Nutze KI als Lernhelfer. Verstehe Redstone-Logik, werde Bug-Jäger und löse knifflige Probleme Schritt für Schritt.</p>
                     <div class="card-footer">
                         <a href="tag-4.html" class="btn btn-primary">Zur Lektion</a>
-                        <button class="btn btn-secondary" onclick="collectBadge(4)">Badge sammeln</button>
+                        <button class="btn btn-secondary collect-badge-btn" data-day="4">Badge sammeln</button>
                     </div>
                 </article>
 
@@ -211,7 +211,7 @@
                     <p>Entwickle dein eigenes Spielkonzept mit KI-Unterstützung. Präsentiere deine Idee und werde offizieller KI-Experte.</p>
                     <div class="card-footer">
                         <a href="tag-5.html" class="btn btn-primary">Zur Lektion</a>
-                        <button class="btn btn-secondary" onclick="collectBadge(5)">Badge sammeln</button>
+                        <button class="btn btn-secondary collect-badge-btn" data-day="5">Badge sammeln</button>
                     </div>
                 </article>
             </div>
@@ -272,19 +272,7 @@
                     <h3>Für Eltern</h3>
                     <p>Informationen für Erwachsene: Was die Kinder lernen und wie ihr unterstützen könnt.</p>
                 </a>
-
-                <a href="bonus.html" class="card" style="text-decoration: none; color: inherit;">
-                    <div class="card-header">
-                        <div class="card-icon coral">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3>Bonus-Ideen</h3>
-                    <p>Zusätzliche Projekte und Ideen für alle, die noch mehr entdecken wollen.</p>
-                </a>
-            </div>
+            </main>
         </div>
     </section>
 
@@ -381,6 +369,14 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', loadProgress);
+        
+        // Event delegation for badge buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('collect-badge-btn')) {
+                const day = parseInt(e.target.getAttribute('data-day'));
+                collectBadge(day);
+            }
+        });
     </script>
 </body>
 </html>

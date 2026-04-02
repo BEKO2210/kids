@@ -116,13 +116,44 @@ a:hover {
    LAYOUT - MOBILE FIRST
    ============================================ */
 
-.container,
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .container-narrow {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container,
+  .container-narrow {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container,
+  .container-narrow {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+  .container-narrow {
+    max-width: 800px;
+  }
 }
 
 /* ============================================
@@ -145,6 +176,7 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .navbar-logo {
@@ -516,7 +548,22 @@ a:hover {
 
 .lesson-content {
   width: 100%;
-  padding-bottom: 2.5rem;
+  max-width: 100%;
+  padding: 0 1rem 2.5rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .lesson-content {
+    padding: 0 1.5rem 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .lesson-content {
+    max-width: 800px;
+    padding: 0 2rem 2.5rem;
+  }
 }
 
 .lesson-content h2 {
@@ -698,7 +745,6 @@ a:hover {
 
 .footer-content {
   text-align: center;
-  padding: 0 1rem;
 }
 
 .footer p {
@@ -740,12 +786,6 @@ a:hover {
    ============================================ */
 
 @media (min-width: 640px) {
-  .container,
-  .container-narrow {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-  
   h1 { font-size: 2.25rem; }
   h2 { font-size: 1.75rem; }
   h3 { font-size: 1.375rem; }
@@ -807,12 +847,6 @@ a:hover {
    ============================================ */
 
 @media (min-width: 768px) {
-  .container,
-  .container-narrow {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-  
   .navbar-nav {
     display: flex;
   }
@@ -906,14 +940,6 @@ a:hover {
    ============================================ */
 
 @media (min-width: 1024px) {
-  .container {
-    max-width: 1200px;
-  }
-  
-  .container-narrow {
-    max-width: 800px;
-  }
-  
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
   }

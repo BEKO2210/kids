@@ -280,7 +280,11 @@ describe('Konsistenz-Tests', () => {
     htmlFiles.forEach(file => {
       const content = readFile(file);
       expect(content).toMatch(/href="styles\.css"/);
-      expect(content).not.toMatch(/href=".*\.css"/); // Keine anderen CSS-Dateien
+      // Prüfe dass keine anderen CSS-Dateien (außer styles.css) verwendet werden
+      const cssLinks = content.match(/href="[^"]*\.css"/g) || [];
+      cssLinks.forEach(link => {
+        expect(link).toBe('href="styles.css"');
+      });
     });
   });
 
