@@ -28,7 +28,7 @@
             </ul>
             <div class="navbar-actions">
                 <a href="wochenplan.html" class="btn btn-ghost">Wochenplan</a>
-                <button class="navbar-menu-btn" aria-label="Menu">
+                <button type="button" class="navbar-menu-btn" aria-label="Menu">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="3" y1="12" x2="21" y2="12"/>
                         <line x1="3" y1="6" x2="21" y2="6"/>
@@ -50,7 +50,7 @@
             </div>
             <h1>Werde zum <span>KI-Experten</span></h1>
             <p class="hero-subtitle">
-                Willkommen! Ein interaktiver Kurs für Maxim, Alia und Amir. Entdecke die Welt der Künstlichen Intelligenz – 
+                Willkommen! Ein interaktiver Kurs für Maxim, Alia und Amir. Entdecke die Welt der Künstlichen Intelligenz –
                 spielerisch, verständlich und mit echten Projekten.
             </p>
             <div class="hero-actions">
@@ -115,7 +115,7 @@
                 <h2>Die 5 Tage im Überblick</h2>
                 <p>Jeder Tag bringt neue Erkenntnisse und eine Herausforderung. Klicke auf einen Tag, um zu starten.</p>
             </div>
-            
+
             <main class="card-grid">
                 <!-- Tag 1 -->
                 <article class="card" data-day="1">
@@ -133,7 +133,7 @@
                     <p>Verstehe den Unterschied zwischen einfachen Regeln und echter KI. Wir bauen einen einfachen Chatbot und lernen, wie Minecraft-Mobs "denken".</p>
                     <div class="card-footer">
                         <a href="tag-1.html" class="btn btn-primary">Zur Lektion</a>
-                        <button class="btn btn-secondary collect-badge-btn" data-day="1">Badge sammeln</button>
+                        <button type="button" class="btn btn-secondary collect-badge-btn" data-day="1">Badge sammeln</button>
                     </div>
                 </article>
 
@@ -151,7 +151,7 @@
                     <p>Lerne die Kunst der perfekten Frage. Wie bekommst du genau die Antwort, die du brauchst? Mit dem 5-Sterne-Prompt-Rezept.</p>
                     <div class="card-footer">
                         <a href="tag-2.html" class="btn btn-primary">Zur Lektion</a>
-                        <button class="btn btn-secondary collect-badge-btn" data-day="2">Badge sammeln</button>
+                        <button type="button" class="btn btn-secondary collect-badge-btn" data-day="2">Badge sammeln</button>
                     </div>
                 </article>
 
@@ -172,7 +172,7 @@
                     <p>Erstelle eigene Minecraft-Skins, schreibe Geschichten und designe Charaktere. Die KI wird zu deinem kreativen Partner.</p>
                     <div class="card-footer">
                         <a href="tag-3.html" class="btn btn-primary">Zur Lektion</a>
-                        <button class="btn btn-secondary collect-badge-btn" data-day="3">Badge sammeln</button>
+                        <button type="button" class="btn btn-secondary collect-badge-btn" data-day="3">Badge sammeln</button>
                     </div>
                 </article>
 
@@ -192,7 +192,7 @@
                     <p>Nutze KI als Lernhelfer. Verstehe Redstone-Logik, werde Bug-Jäger und löse knifflige Probleme Schritt für Schritt.</p>
                     <div class="card-footer">
                         <a href="tag-4.html" class="btn btn-primary">Zur Lektion</a>
-                        <button class="btn btn-secondary collect-badge-btn" data-day="4">Badge sammeln</button>
+                        <button type="button" class="btn btn-secondary collect-badge-btn" data-day="4">Badge sammeln</button>
                     </div>
                 </article>
 
@@ -211,7 +211,7 @@
                     <p>Entwickle dein eigenes Spielkonzept mit KI-Unterstützung. Präsentiere deine Idee und werde offizieller KI-Experte.</p>
                     <div class="card-footer">
                         <a href="tag-5.html" class="btn btn-primary">Zur Lektion</a>
-                        <button class="btn btn-secondary collect-badge-btn" data-day="5">Badge sammeln</button>
+                        <button type="button" class="btn btn-secondary collect-badge-btn" data-day="5">Badge sammeln</button>
                     </div>
                 </article>
             </div>
@@ -225,7 +225,7 @@
                 <h2>Weitere Materialien</h2>
                 <p>Arbeitsblätter, Wochenplan und zusätzliche Ressourcen für dein KI-Abenteuer.</p>
             </div>
-            
+
             <div class="card-grid">
                 <a href="wochenplan.html" class="card" style="text-decoration: none; color: inherit;">
                     <div class="card-header">
@@ -311,17 +311,17 @@
 
         function collectBadge(day) {
             if (unlockedBadges.has(day)) return;
-            
+
             unlockedBadges.add(day);
             saveProgress();
             updateBadgeVisuals(day);
             updateProgressBar();
-            
+
             // Animation
             const card = document.querySelector(`.card[data-day="${day}"]`);
             card.style.transform = 'scale(1.02)';
             setTimeout(() => card.style.transform = '', 200);
-            
+
             // Celebration for all badges
             if (unlockedBadges.size === 5) {
                 setTimeout(() => {
@@ -337,7 +337,7 @@
                 badgeEl.classList.remove('locked');
                 badgeEl.classList.add('unlocked');
             }
-            
+
             const card = document.querySelector(`.card[data-day="${day}"]`);
             const btn = card?.querySelector('button');
             if (btn) {
@@ -352,13 +352,13 @@
             const fill = document.getElementById('progress-fill');
             const badge = document.getElementById('progress-badge');
             const text = document.getElementById('progress-text');
-            
+
             fill.style.width = `${progress}%`;
             badge.textContent = `${unlockedBadges.size} / 5`;
-            
+
             if (unlockedBadges.size === 5) {
                 text.textContent = 'Herzlichen Glückwunsch! Du hast alle Badges gesammelt!';
-                document.getElementById('progress-card').style.background = 
+                document.getElementById('progress-card').style.background =
                     'linear-gradient(135deg, var(--success) 0%, #059669 100%)';
             } else if (unlockedBadges.size === 0) {
                 text.textContent = 'Starte mit Tag 1, um deinen ersten Badge zu erhalten.';
@@ -369,7 +369,7 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', loadProgress);
-        
+
         // Event delegation for badge buttons
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('collect-badge-btn')) {

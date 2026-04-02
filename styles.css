@@ -16,7 +16,7 @@
   
   /* Neutrale Palette */
   --bg: #fafafa;
-  --bg-elevated: #ffffff;
+  --bg-elevated: #fff;
   --surface: #f3f4f6;
   --surface-hover: #e5e7eb;
   
@@ -33,9 +33,9 @@
   /* Borders & Shadows */
   --border: #e5e7eb;
   --border-light: #f3f4f6;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
   
   /* Radius */
   --radius-sm: 6px;
@@ -64,7 +64,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: var(--bg);
   color: var(--text-primary);
   line-height: 1.6;
@@ -168,7 +168,6 @@ a:hover {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .navbar-content {
@@ -260,14 +259,14 @@ a:hover {
 .btn-primary {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
-  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+  box-shadow: 0 2px 8px rgb(79 70 229 / 35%);
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
   color: white;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.45);
+  box-shadow: 0 4px 12px rgb(79 70 229 / 45%);
 }
 
 .btn-secondary {
@@ -321,7 +320,7 @@ a:hover {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: rgba(79, 70, 229, 0.1);
+  background: rgb(79 70 229 / 10%);
   color: var(--primary);
   border-radius: 50px;
   font-weight: 600;
@@ -447,12 +446,12 @@ a:hover {
 }
 
 .card-badge.locked {
-  background: rgba(245, 158, 11, 0.1);
+  background: rgb(245 158 11 / 10%);
   color: var(--warning);
 }
 
 .card-badge.unlocked {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgb(16 185 129 / 10%);
   color: var(--success);
 }
 
@@ -483,12 +482,12 @@ a:hover {
 
 .progress-card h3,
 .progress-card p {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
 }
 
 .progress-bar {
   height: 6px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(255 255 255 / 20%);
   border-radius: 3px;
   overflow: hidden;
   margin: 0.75rem 0;
@@ -612,6 +611,27 @@ a:hover {
   font-style: italic;
 }
 
+/* ============================================
+   FOOTER - MOBILE FIRST
+   ============================================ */
+
+.footer {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border);
+  padding: 2rem 0 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
 .lesson-content blockquote p {
   margin: 0;
   color: var(--text-secondary);
@@ -709,17 +729,17 @@ a:hover {
 }
 
 .info-box.tip {
-  background: rgba(20, 184, 166, 0.1);
+  background: rgb(20 184 166 / 10%);
   border-left-color: var(--accent-teal);
 }
 
 .info-box.note {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgb(59 130 246 / 10%);
   border-left-color: var(--info);
 }
 
 .info-box.warning {
-  background: rgba(245, 158, 11, 0.1);
+  background: rgb(245 158 11 / 10%);
   border-left-color: var(--warning);
 }
 
@@ -730,27 +750,6 @@ a:hover {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.95rem;
-}
-
-/* ============================================
-   FOOTER - MOBILE FIRST
-   ============================================ */
-
-.footer {
-  background: var(--bg-elevated);
-  border-top: 1px solid var(--border);
-  padding: 2rem 0 1.5rem;
-  margin-top: 2.5rem;
-}
-
-.footer-content {
-  text-align: center;
-}
-
-.footer p {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  margin: 0;
 }
 
 /* ============================================
@@ -775,6 +774,7 @@ a:hover {
 .mb-4 { margin-bottom: 2rem; }
 
 .nowrap { white-space: nowrap; }
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
